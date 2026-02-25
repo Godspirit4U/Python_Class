@@ -1,54 +1,34 @@
-print("\n-----------------------------------------")
-print("----- Insurence Premium Calculation -----")
-print("-----------------------------------------")
+age = int(input("Enter age: "))
+gender = input("Enter gender (male/female): ").lower()
+health = input("Enter health condition (excellent/poor): ").lower()
+location = input("Enter location (city/village): ").lower()
+policy_requested = int(input("Enter policy amount required: "))
 
-health_status = print("What is your health status?\n\t1) Excellent\n\t2) Poor")
-if health_status != 1 or health_status != 2:
-    print("Ivvalid option!")
-    exit()
-try:
-    age = int(input("Enter your age: "))
-except ValueError:
-    print("Invalid Input.")
-lives_in = print("Where do you live?\n\t1) City\n\t2) Village")
-if lives_in != 1 or lives_in != 2:
-    print("Ivvalid option!")
-    exit()
-gender = print("What is your gender?\n\t1) Male\n\t2) Female")
-if gender != 1 or gender != 2:
-    print("Ivvalid option!")
-    exit()
-try:
-    policy_value = int(input("Enter your required policy value: "))
-except ValueError:
-    print("Invalid Input.")
-
-if health_status == 1 and age >= 25 and age < 35 and lives_in == 1 and gender == 1:
-    if policy_value > 200000:
-        print("Policy amount cannot exceed ₹200000")
-        exit()
-    else:
-        print("Premium is Rs. 4000 per month.")
-elif health_status == 1 and age >= 25 and age < 35 and lives_in == 1 and gender == 2:
-    if policy_value > 150000:
-        print("Policy amount cannot exceed ₹150000")
-        exit()
-    else:
-        print("Premium is Rs. 3000 per month.")
-elif health_status == 2 and age >= 25 and age < 35 and lives_in == 2 and gender == 1:
-    if policy_value > 100000:
-        print("Policy amount cannot exceed ₹100000")
-        exit()
-    else:
-        print("Premium is Rs. 6000 per month.")
-elif age < 25 or age > 65:
-    print("Poliy do not apply for you.")
+if age < 25 or age > 65:
+    print("Person is not eligible for insurance.")
 else:
-    if policy_value > 125000:
-        print("Policy amount cannot exceed ₹125000")
-        exit()
-    else:
-        print("Premium is Rs. 5000 per month.")
+    if health == "excellent" and 25 <= age <= 35 and location == "city" and gender == "male":
+        max_policy = 200000
+        base_premium = 4000
 
-if policy_value < 123456:
-    
+    elif health == "excellent" and 25 <= age <= 35 and location == "city" and gender == "female":
+        max_policy = 150000
+        base_premium = 3000
+
+    elif health == "poor" and 25 <= age <= 35 and location == "village" and gender == "male":
+        max_policy = 100000
+        base_premium = 6000
+
+    else:
+        max_policy = 125000
+        base_premium = 5000
+
+    if policy_requested > max_policy:
+        print("Requested policy exceeds maximum allowed.")
+        print("Maximum policy allowed:", max_policy)
+    else:
+
+        premium = (policy_requested / max_policy) * base_premium
+        print("Policy approved!")
+        print("Maximum policy allowed:", max_policy)
+        print("Monthly premium to be paid: Rs.", premium)

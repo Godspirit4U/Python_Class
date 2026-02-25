@@ -11,7 +11,6 @@ if len(character) == 1:
         print(chr(48))
     elif (ascii >= 48 and ascii <= 57) or (ascii >= 65 and ascii <= 90) or (ascii >= 97 and ascii <= 122):
         print(character)
-        '''we can also use character.isalnum()'''
     elif ascii > 57 and ascii < 65:
         d1 = abs(ascii - 57)
         d2 = abs(ascii - 65)
