@@ -5,7 +5,8 @@ class person:
         self.cgpa = cgpa
 
     def show_details(self):
-        print(f'--------------------\nName : {self.name}\nID : {self.id}\nCGPA : {self.cgpa}\n')
+        print(
+            f'--------------------\nName : {self.name}\nID : {self.id}\nCGPA : {self.cgpa}\n')
 
     def cgpa_checker(self):
         if self.cgpa < 8:
@@ -30,3 +31,4 @@ p2.cgpa_checker()
 p3 = person('Dollar', 8554, 7.4)
 p3.update_gpa(9.2)
 p3.show_details()
+p3.cgpa_checker()
