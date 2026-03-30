@@ -35,7 +35,6 @@ else:
 # initialising required variables
 low_rate = 0
 high_rate = 10000
-mid_rate = (low_rate + high_rate) // 2
 steps = 0
 # looping until we find required savings rate
 
